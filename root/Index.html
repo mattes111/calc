@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <style>
+      body {
+        font-family: monospace;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-size: 1.5rem;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        text-align: center;
+        font-size: 2.5rem;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+        width: 100%;
+        max-width: 350px;
+        min-height: 350px;
+        margin: 0 auto;
+        background: linear-gradient(135deg, #e0e7ff 0%, #f0f4f8 100%);
+        padding: 32px 28px;
+        border-radius: 18px;
+        box-shadow: 0 8px 32px 0 rgba(60, 60, 120, 0.15),
+          0 1.5px 4px 0 rgba(0, 0, 0, 0.04);
+        border: 1.5px solid #d1d5db;
+      }
+      input,
+      button {
+        font-size: 1.3rem;
+        text-align: center;
+      }
+
+      h1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        margin: 40px auto 0 auto;
+        width: 350px;
+        min-height: 350px;
+        background: linear-gradient(135deg, #e0e7ff 0%, #f0f4f8 100%);
+        padding: 32px 28px;
+        border-radius: 18px;
+        box-shadow: 0 8px 32px 0 rgba(60, 60, 120, 0.15),
+          0 1.5px 4px 0 rgba(0, 0, 0, 0.04);
+        border: 1.5px solid #d1d5db;
+      }
+    </style>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        min-height: 100vh;
+        min-width: 100vw;
+        background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .container {
+        width: 100%;
+        max-width: 350px;
+        min-height: 350px;
+        margin: 0 auto;
+        background: linear-gradient(135deg, #e0e7ff 0%, #f0f4f8 100%);
+        padding: 32px 28px;
+        border-radius: 18px;
+        box-shadow: 0 8px 32px 0 rgba(60, 60, 120, 0.15),
+          0 1.5px 4px 0 rgba(0, 0, 0, 0.04);
+        border: 1.5px solid #d1d5db;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+      }
+      @media (max-width: 600px) {
+        .container {
+          max-width: 95vw;
+          padding: 20px 8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Calculator</h1>
+    <div class="container">
+      <input type="text" id="input" placeholder="Enter your expression" />
+      <button id="calculate">Calculate</button>
+      <p id="result"></p>
+    </div>
+    <script>
+      document.getElementById("calculate").addEventListener("click", calculate);
+      function calculate() {
+        const input = document.getElementById("input").value;
+        const result = eval(input);
+        document.getElementById("result").innerHTML = result;
+      }
+    </script>
+  </body>
+</html>
