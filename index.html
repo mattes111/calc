@@ -1,2 +1,181 @@
-Also, was oh???  ich kann hier alles hinscjreiben pia das ist nur für dich.
-    
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Warum du mir schneller antworten solltest</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #020617;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --love: #f472b6;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top, #1e293b, var(--bg));
+      color: var(--text);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .card {
+      background: linear-gradient(180deg, #020617, #020617ee);
+      padding: 36px;
+      border-radius: 18px;
+      max-width: 520px;
+      width: 90%;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+      animation: floatIn 1s ease forwards;
+    }
+
+    h1 {
+      font-size: 1.9rem;
+      margin-bottom: 22px;
+      animation: fadeUp 0.8s ease forwards;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin: 0;
+    }
+
+    li {
+      margin-bottom: 14px;
+      line-height: 1.6;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards;
+    }
+
+    li:nth-child(1) { animation-delay: 0.2s; }
+    li:nth-child(2) { animation-delay: 0.35s; }
+    li:nth-child(3) { animation-delay: 0.5s; }
+
+    /* Unsichtbarer Trigger */
+    .trigger {
+      color: inherit;       /* bleibt weiß */
+      font-weight: inherit; /* kein Hervorheben */
+      cursor: default;      /* kein Link-Gefühl */
+    }
+
+    .hint {
+      margin-top: 22px;
+      font-size: 0.9rem;
+      color: var(--muted);
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards;
+      animation-delay: 0.7s;
+    }
+
+    /* Secret Screen */
+    .secret {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at center, #1f2937, #020617);
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--love);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1s ease;
+    }
+
+    .secret.show {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .secret span {
+      animation: pulse 2.5s ease-in-out infinite;
+    }
+
+    @keyframes floatIn {
+      from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.97);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.85;
+      }
+      50% {
+        transform: scale(1.06);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card" id="main">
+    <h1>Warum du mir schneller antworten solltest</h1>
+
+    <ul>
+      <li>
+        Man weiß
+        <span class="trigger" id="schneller">schneller</span>,
+        woran man ist.
+      </li>
+      <li>Gespräche bleiben flüssig.</li>
+      <li>Planen wird einfacher.</li>
+    </ul>
+
+    <div>
+        Okay?
+    </div>
+  </div>
+
+  <div class="secret" id="secret">
+    <span>I love you</span>
+  </div>
+
+  <script>
+    const trigger = document.getElementById("schneller");
+    const main = document.getElementById("main");
+    const secret = document.getElementById("secret");
+
+    trigger.addEventListener("dblclick", () => {
+      main.style.opacity = "0";
+      main.style.transform = "scale(0.96)";
+      setTimeout(() => {
+        main.style.display = "none";
+        secret.classList.add("show");
+      }, 500);
+    });
+  </script>
+
+</body>
+</html>
